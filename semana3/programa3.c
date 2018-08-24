@@ -18,7 +18,7 @@ int main()
 	a= (acos((z/r)))*(180/3.141592);
 	b= (atan((y/x)))*(180/3.141592);
 
-	printf("Tus coordenadas esféricas (r,θ,φ) son: (%f,%f°,%f°,)\n", r, a, b);
+	printf("Tus coordenadas esféricas (r,θ,φ) son: (%f,%f°,%f°)\n", r, a, b);
 
 	return 0;
 }
