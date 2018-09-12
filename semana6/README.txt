@@ -1,0 +1,1 @@
+-programa1.o: Este programa registra los datos de 10 alumnos y analiza la informacion para darte un resumen.
