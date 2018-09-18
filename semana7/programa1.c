@@ -5,8 +5,8 @@
 int main()
 {
 	FILE *fp;
-	int p,a,b,c,n,i,fx;//p=potencia, a-b=intervalo, c=espaciado
-	float lx,h;
+	int p,a,b,c,n,i,j,fx;//p=potencia, a-b=intervalo, c=espaciado
+	float lx,h,suma;
 
 	fp=fopen("Potencia.txt","r");
 	fscanf(fp,"La potencia de x es:\n%i",&p);
@@ -16,22 +16,18 @@ int main()
 	c=(b-a)/n;
 
 	fp=fopen("resultados.txt","w");
+	fprintf(fp,"x\tf(x)\tl(x)\n");
 	if(p>=1){
 	for(i=a;i<=b;i+=c)
 	{
-	fprintf(fp,"%i",i);
 	fx=pow(i,p);
 	h=(i-a)/n;
-
 	for(j=1;j<=n-1;j++){
-	
-
-
-
-
-	lx=h*( ((fx+(pow(a,p)))/2)+
+	suma+=pow((a+(j*h)),p);}
+	lx=h*(((fx+(pow(a,p)))/2)+suma);
+	fprintf(fp,"%i\t%i\t%f\n",i,fx,lx);
 	}
-	}else{}
+	}else{fprintf(fp,"Esa potencia no es válida\n");}
 	fclose(fp);
 
 	return 0;
