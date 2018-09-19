@@ -1,3 +1,4 @@
+/*Programa hecho el 12/09/2018 por Marco Gutiérrez.*/
 #include<stdio.h>
 
 int main()
@@ -67,6 +68,7 @@ int main()
 	fprintf(fp,"%i son de noveno\n",s9);
 	fprintf(fp,"y el promedio de calificaciones de todos los alumnos es:\n");
 	fprintf(fp,"%f\n",p);
+	fclose(fp);
 
 	return 0;
 }

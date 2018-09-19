@@ -1,6 +1,5 @@
-La potencia de x es:
-2
-El intervalo en el que se va a evaluar x es:
-de 1 a 5
-Y se evaluaran:
-2 números
+4
+1
+100
+99
+30

@@ -4,30 +4,45 @@
 
 int main()
 {
-	FILE *fp;
-	int p,a,b,c,n,i,j,fx;//p=potencia, a-b=intervalo, c=espaciado
-	float lx,h,suma;
+	FILE*fp;
+	int p,n,j,k;
+	float i,a,b,c,fx,lx,h,sumatoria,fa;
 
 	fp=fopen("Potencia.txt","r");
-	fscanf(fp,"La potencia de x es:\n%i",&p);
-	fscanf(fp,"El intervalo en el que se va a evaluar x es:\nde %i a %i",&a,&b);
-	fscanf(fp,"Y se evaluaran:\n%i números",&n-1);
+	fscanf(fp,"%i",&p);
+	fscanf(fp,"%f",&a);
+	fscanf(fp,"%f",&b);
+	fscanf(fp,"%i",&n);
+	fscanf(fp,"%i",&j);
 	fclose(fp);
+
 	c=(b-a)/n;
 
 	fp=fopen("resultados.txt","w");
-	fprintf(fp,"x\tf(x)\tl(x)\n");
+	fprintf(fp,"x\t\tf(x)\t\t\tl(x)\n");
+
 	if(p>=1){
+	
+        fa=pow(a,p);
 	for(i=a;i<=b;i+=c)
 	{
 	fx=pow(i,p);
-	h=(i-a)/n;
-	for(j=1;j<=n-1;j++){
-	suma+=pow((a+(j*h)),p);}
-	lx=h*(((fx+(pow(a,p)))/2)+suma);
-	fprintf(fp,"%i\t%i\t%f\n",i,fx,lx);
+        
+	h=(i-a)/j;
+        sumatoria=0;
+	for(k=1;k<=j-1;k++){
+	sumatoria=sumatoria+(pow((a+(k*h)),p));}
+
+	lx=h*(((fx+fa)/2.0)+sumatoria);
+	fprintf(fp,"%f\t%f\t\t%f\n",i,fx,lx);
 	}
-	}else{fprintf(fp,"Esa potencia no es válida\n");}
+	
+	}
+	else{
+	fprintf(fp,"Esa potencia no es válida\n");
+	return 1;
+	}
+
 	fclose(fp);
 
 	return 0;

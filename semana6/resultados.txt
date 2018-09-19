@@ -1,0 +1,32 @@
+Número evaluado: 12.000000
+
+Exponencial:	162754.796875
+Logaritmo:	2.484907
+Seno:		-0.536573
+Coseno:		0.843854
+Raíz cuadrada:	3.464102
+
+Número evaluado: 22.000000
+
+Exponencial:	3584912896.000000
+Logaritmo:	3.091043
+Seno:		-0.008851
+Coseno:		-0.999961
+Raíz cuadrada:	4.690416
+
+Número evaluado: 32.000000
+
+Exponencial:	78962956959744.000000
+Logaritmo:	3.465736
+Seno:		0.551427
+Coseno:		0.834223
+Raíz cuadrada:	5.656854
+
+Número evaluado: 42.000000
+
+Exponencial:	1739274975342231552.000000
+Logaritmo:	3.737670
+Seno:		-0.916522
+Coseno:		-0.399985
+Raíz cuadrada:	6.480741
+
