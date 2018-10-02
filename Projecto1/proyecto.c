@@ -6,18 +6,24 @@ int main()
     //Declacion de variables
 	FILE *fp;
 	int i;
-	float x[9],y[9],z[9],vx[9],vy[9],vz[9];
-	float xi,yi,zi,vxi,vyi,vzi;
-	float Msol,G,r,j,f[9],h[9];
+	double x[9],y[9],z[9],vx[9],vy[9],vz[9];
+	double xi,yi,zi,vxi,vyi,vzi;
+	double Msol,G,r,j,f[9],h[9];
 	
     //Escaneo de datos
 	fp=fopen("Planetas.txt","r");
 	for(i=0;i<9;i++)
 	{
-	fscanf(fp,"%f %f %f %f %f %f",&x[i],&y[i],&z[i],&vx[i],&vy[i],&vz[i]);
-	fscanf(fp,"%f %f",&f[i],&h[i]);
+	fscanf(fp,"%lf %lf %lf %lf %lf %lf",&x[i],&y[i],&z[i],&vx[i],&vy[i],&vz[i]);
+	x[i]=x[i]*365.242;
+	y[i]=y[i]*365.242;
+	z[i]=z[i]*365.242;
+	vx[i]=vx[i]*365.242;
+	vy[i]=vy[i]*365.242;
+	vz[i]=vz[i]*365.242;
+	fscanf(fp,"%lf %lf",&f[i],&h[i]);
 	}
-	fscanf(fp,"%f",&Msol);
+	fscanf(fp,"%lf",&Msol);
 	fclose(fp);
 
     //Operaciones e impresion de datos
@@ -46,10 +52,10 @@ int main()
 			break;
 		}
 		
-		fprintf(fp,"Posición\t\tVelocidad");
-		fprintf(fp,"%f %f %f %f %f %f",x[i],y[i],z[i],vx[i],vy[i],vz[i]);
+		fprintf(fp,"Posición\t\t\t\tVelocidad\n");
+		fprintf(fp,"%lf %lf %lf %lf %lf %lf\n",x[i],y[i],z[i],vx[i],vy[i],vz[i]);
 
-		for(j=0;j<f;j+=h[i])
+		for(j=0;j<f[i];j+=h[i])
 		{
 		r=sqrt(pow(x[i],2)+pow(y[i],2)+pow(z[i],2));
 		xi=x[i]+vx[i]*h[i];
@@ -59,7 +65,7 @@ int main()
 		vyi=vy[i]-(h[i]*G*Msol*y[i]/pow(r,3));
 		vzi=vz[i]-(h[i]*G*Msol*z[i]/pow(r,3));
 		
-		fprintf(fp,"%f %f %f %f %f %f",xi,yi,zi,vxi,vyi,vzi);
+		fprintf(fp,"%lf %lf %lf %lf %lf %lf\n",xi,yi,zi,vxi,vyi,vzi);
 
 		x[i]=xi;
 		y[i]=yi;
